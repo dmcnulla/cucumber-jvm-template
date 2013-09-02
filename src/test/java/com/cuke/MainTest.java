@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
 @RunWith(Cucumber.class)
-@Cucumber.Options(features = {"src/test/resources"}, format = {"pretty",
-        "html:target/reports/cucumber/html",
-        "json:target/cucumber.json", "usage:target/usage.jsonx", "junit:target/junit.xml"},
-        tags = {"@done", "~@wip"})
+@Cucumber.Options(features = {"src/test/resources"},
+        format = {"pretty", "html:target/reports/cucumber/html", "json:target/cucumber.json", "usage:target/usage.jsonx", "junit:target/junit.xml"},
+        tags = {"~@broken", "~@wip", "~@manual"})
 public class MainTest {
 
     @BeforeClass
@@ -18,12 +17,8 @@ public class MainTest {
         WebDriverSingleton.getInstance();
     }
 
-
     @AfterClass
     public static void tearDown() {
         WebDriverSingleton.getInstance().quit();
     }
-
 }
-
-
